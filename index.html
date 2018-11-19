@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        <h1>Train Time!</h1>
+        Train Time!
     </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
@@ -28,23 +28,21 @@
         <h2>Current Train Schedule</h2>
         <table class="table table-striped">
                 <thead>
-                  <tr id="fullTable">
+                  <tr>
                     <th scope="col">Train Name</th>
                     <th scope="col">Destination</th>
                     <th scope="col">Frequency (min)</th>
                     <th scope="col">Next Arrival</th>
                     <th scope="col">Minutes Away</th>
-                    <th scope="col">Total Billed ($)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row" id="name-display"></th>
-                    <td id="role-display"></td>
-                    <td id="startDate-display"></td>
-                    <td id="monthsWorked-display"></td>
-                    <td id="monthlyRate-display"></td>
-                    <td id="totalBilled-display"></td>
+                    <th scope="row" id="train-name"></th>
+                    <td id="destination"></td>
+                    <td id="frequency"></td>
+                    <td id="next.arriv"></td>
+                    <td id="min.away"></td>
                   </tr>
                   <tr>
                   </tr>
@@ -87,7 +85,7 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="firebase.js"></script>
+<script src="assets/javascript/moment.js"></script>
 
 </body>
 </html>
