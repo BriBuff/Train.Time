@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <h1>Train Time!</h1>
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4">Train Time!</h1>
+                  <p class="lead">"The trains always arrive at your station. The question is which one to take?" -Mehmet Murat ildan</p>
+                </div>
+              </div>
+
+    <br>
+
+    <section>
+        <h2>Current Train Schedule</h2>
+        <table class="table table-striped">
+                <thead>
+                  <tr id="fullTable">
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                    <th scope="col">Total Billed ($)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" id="name-display"></th>
+                    <td id="role-display"></td>
+                    <td id="startDate-display"></td>
+                    <td id="monthsWorked-display"></td>
+                    <td id="monthlyRate-display"></td>
+                    <td id="totalBilled-display"></td>
+                  </tr>
+                  <tr>
+                  </tr>
+                  <tr>
+                  </tr>
+                </tbody>
+              </table>
+
+    </section>
+
+    <br>
+
+<section>
+    <h2>Add Train</h2>
+    <form>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Train Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Hogwart's Express">
+        </div>
+
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Destination</label>
+            <input type="text" class="form-control" id="role" placeholder="Hogwarts">
+        </div>
+
+        <div class="form-group">
+                <label for="formGroupExampleInput2">First Train Time (HH:mm- military time)</label>
+                <input type="text" class="form-control" id="startDate" placeholder="13:00">
+        </div>
+
+        <div class="form-group">
+                <label for="formGroupExampleInput2">Frequency (min)</label>
+                <input type="text" class="form-control" id="monthlyRate" placeholder="20">
+        </div>
+
+        <a class="btn btn-primary btn-lg" href="#" id="submit" role="button">Submit</a>
+    </form>
+</section>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="firebase.js"></script>
+
+</body>
+</html>
