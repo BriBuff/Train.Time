@@ -12,13 +12,13 @@ var config = {
   var database = firebase.database();
 
   //Event for clicking submit 
-$("#submit").on("click", function (event) {
+$("#submit").on("click", function(event) {
   event.preventDefault();
 
 //   Grabbing val from the text box
 var trainName = $("#train-name-submit").val().trim();
 var trainDestination = $("#destination-submit").val().trim();
-var trainTime = $("trainTime-submit").val().trim();
+var trainTime = moment($("trainTime-submit").val().trim(), "HH:mm").format("X");
 var trainFreq = $("#freq-submit").val().trim();
 
 // Temp for new train
@@ -48,7 +48,7 @@ database.ref().push (newTrain);
   });
 
   // Database event to add new train & the train to the table
-  database.ref("").on("child-added", function(childSnapshot) {
+  database.ref().on("child-added", function(childSnapshot) {
     console.log(childSnapshot.val());
     
     // Store train info.
@@ -64,14 +64,26 @@ database.ref().push (newTrain);
 
     // Moment.js goes here (military time to standard time, minutes calculated)
 
+    // Change military to standard.
+    var standardTime = moment(trainTime, "HH:mm").format("hh:mm");
+    // Convert standard time to min
+    var minConverted = moment().diff(moment(standardTime), "minutes");
+    // Remainder of time apart
+    var minRemain = minConverted % trainFreq;
+    // Min till next train
+    var minLeft = trainFreq - minRemain;
+    // Next Train in min
+    var minAway = moment().add(minLeft, "minutes");
+
     // Creating a new row
     var createRow = $("<tr>").append(
       $("<td>").text(trainName),
       $("<td>").text(trainDestination),
-      $("<td>").text(trainTime),
       $("<td>").text(trainFreq),
+      $("<td>").text(standardTime),
+      $("<td>").text(minAway)
     );
 
-    $("#train-table").append(createRow);
+    $("#train-table > tbody").append(createRow);
 
   });
