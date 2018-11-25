@@ -18,7 +18,7 @@ $("#submit").on("click", function(event) {
 //   Grabbing val from the text box
 var trainName = $("#train-name-submit").val().trim();
 var trainDestination = $("#destination-submit").val().trim();
-var trainTime = moment($("trainTime-submit").val().trim(), "HH:mm").format("X");
+var trainTime = moment($("trainTime-submit").val().trim(), "HH:mm").format();
 var trainFreq = $("#freq-submit").val().trim();
 
 // Temp for new train
@@ -67,7 +67,7 @@ database.ref().push (newTrain);
     // Change military to standard.
     var standardTime = moment(trainTime, "HH:mm").format("hh:mm");
     // Convert standard time to min
-    var minConverted = moment().diff(moment(standardTime), "minutes");
+    var minConverted = moment().diff(moment(standardTime), "minutes").fromNow();
     // Remainder of time apart
     var minRemain = minConverted % trainFreq;
     // Min till next train
