@@ -65,9 +65,9 @@ database.ref().push (newTrain);
     // Moment.js goes here (military time to standard time, minutes calculated)
 
     // Change military to standard.
-    var standardTime = moment(trainTime, "HH:mm").format("hh:mm");
+    var standardTime = moment(trainTime, "HH:mm").format("hh:mm a");
     // Convert standard time to min
-    var minConverted = moment().diff(moment(standardTime), "minutes").fromNow();
+    var minConverted = moment().diff(moment(standardTime, "minutes")).fromNow();
     // Remainder of time apart
     var minRemain = minConverted % trainFreq;
     // Min till next train
