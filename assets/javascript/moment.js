@@ -51,11 +51,12 @@ database.ref().on("child_added", function(childSnapshot) {
   console.log(trainFreq);
   // Moment.js goes here (military time to standard time, minutes calculated)
   // Change military to standard.
-  //  moment(firstTime, "HH:mm").subtract(1, "years")
+
   var standardTime = moment(trainTime, "HH:mm").format("hh:mm A");
   console.log('standardTime: ', standardTime);
+
   // Convert standard time to min
-  var minConverted = moment().diff(moment(standardTime, "minutes")).fromNow();
+  var minConverted = moment().diff(moment(standardTime), "minutes");
   console.log("minConverted", minConverted);
   // moment().diff(moment(firstTimeConverted), "minutes")
   // Remainder of time apart
