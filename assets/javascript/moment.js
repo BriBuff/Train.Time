@@ -18,7 +18,7 @@ $("#submit").on("click", function(event) {
 //   Grabbing val from the text box
 var trainName = $("#train-name-submit").val().trim();
 var trainDestination = $("#destination-submit").val().trim();
-var trainTime = moment($("trainTime-submit").val().trim(), "HH:mm").format();
+var trainTime = moment($("#trainTime-submit").val().trim(), "HH:mm").format();
 var trainFreq = $("#freq-submit").val().trim();
 
 // Temp for new train
@@ -48,7 +48,7 @@ database.ref().push (newTrain);
   });
 
   // Database event to add new train & the train to the table
-  database.ref().on("child-added", function(childSnapshot) {
+  database.ref().on("child_added", function(childSnapshot) {
     console.log(childSnapshot.val());
     
     // Store train info.
