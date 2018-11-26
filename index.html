@@ -8,23 +8,24 @@
         Train Time!
     </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 
-<body>
+<body id="body">
     <div class="container">
 
-        <div class="jumbotron jumbotron-fluid">
+        <div id="jumbotron" class="jumbotron jumbotron-fluid">
                 <div class="container">
-                  <h1 class="display-4">Train Time!</h1>
-                  <p class="lead">"The trains always arrive at your station. The question is which one to take?" -Mehmet Murat ildan</p>
+                  <h1 id="h1" class="display-4">Train Time!</h1>
+                  <p id="lead" class="lead">"The trains always arrive at your station. The question is which one to take?" -Mehmet Murat ildan</p>
                 </div>
               </div>
 
     <br>
 
-    <section>
+    <section id="table-container">
         <h2>Current Train Schedule</h2>
         <table class="table table-striped" id="train-table">
                 <thead>
@@ -51,7 +52,7 @@
 
     <br>
 
-<section>
+<section id="input-form">
     <h2>Add Train</h2>
     <form>
         <div class="form-group">

@@ -1,0 +1,22 @@
+#jumbotron {
+    background: transparent;
+    color: white;
+}
+
+#h1 {
+    background: black;
+    width: 260px;
+}
+
+#lead {
+    background: black;
+    width: 825px;
+}
+
+#body {
+    background: url(images/railroad.jpg);
+}
+
+#table-container, #input-form {
+    background: white;
+}
