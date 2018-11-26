@@ -70,7 +70,7 @@ database.ref().on("child_added", function(childSnapshot) {
   var minLeft = trainFreq - minRemain;
   // Next Train in min
   var newTrainTime = moment().add(minLeft, "minutes");
-  var updatedTrainTime =  moment(newTrainTime).format("hh:mm");
+  var updatedTrainTime =  moment(newTrainTime).format("hh:mm A");
   console.log("Arrival Time: " +moment(updatedTrainTime).format("hh:mm"));
   // Creating a new row
   var createRow = $("<tr>").append(
