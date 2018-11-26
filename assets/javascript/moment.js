@@ -51,12 +51,17 @@ database.ref().on("child_added", function(childSnapshot) {
   console.log(trainFreq);
   // Moment.js goes here (military time to standard time, minutes calculated)
   // Change military to standard.
+  var now = moment();
+  console.log("Current time:" + moment(now).format("hh:mm"));
 
+  var trainTimePretty = moment.unix(trainTime).format("HH:mm");
+  console.log(trainTimePretty);
   var standardTime = moment(trainTime, "HH:mm").format("hh:mm A");
   console.log('standardTime: ', standardTime);
 
   // Convert standard time to min
-  var minConverted = moment().diff(moment(standardTime), "minutes");
+  var convertedMin = moment(standardTime, "hh:mm A").subtract(1, "years");
+  var minConverted = moment().diff(moment(convertedMin), "minutes");
   console.log("minConverted", minConverted);
   // moment().diff(moment(firstTimeConverted), "minutes")
   // Remainder of time apart
@@ -64,14 +69,16 @@ database.ref().on("child_added", function(childSnapshot) {
   // Min till next train
   var minLeft = trainFreq - minRemain;
   // Next Train in min
-  var minAway = moment().add(minLeft, "minutes");
+  var newTrainTime = moment().add(minLeft, "minutes");
+  var updatedTrainTime =  moment(newTrainTime).format("hh:mm");
+  console.log("Arrival Time: " +moment(updatedTrainTime).format("hh:mm"));
   // Creating a new row
   var createRow = $("<tr>").append(
     $("<td>").text(trainName),
     $("<td>").text(trainDestination),
     $("<td>").text(trainFreq),
-    $("<td>").text(standardTime),
-    $("<td>").text(minAway)
+    $("<td>").text(updatedTrainTime),
+    $("<td>").text(minLeft)
   );
   $("#train-table > tbody").append(createRow);
 });
