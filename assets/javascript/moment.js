@@ -74,7 +74,7 @@ database.ref().on("child_added", function(childSnapshot) {
   console.log("Arrival Time: " +moment(updatedTrainTime).format("hh:mm"));
   // Creating a new row
   var createRow = $("<tr>").append(
-    $("<td>").text(trainName),
+    $("<th>").text(trainName),
     $("<td>").text(trainDestination),
     $("<td>").text(trainFreq),
     $("<td>").text(updatedTrainTime),
